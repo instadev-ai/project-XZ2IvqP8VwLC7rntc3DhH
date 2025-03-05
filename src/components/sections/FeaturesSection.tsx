@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CheckCircle } from "lucide-react";
 
 const FeaturesSection = () => {
-  const [activeTab, setActiveTab] = useState("analytics");
+  const [activeTab, setActiveTab] = useState("automation");
 
   return (
     <section id="features" className="py-20 md:py-32 bg-white">
@@ -17,7 +17,7 @@ const FeaturesSection = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="analytics" className="w-full" onValueChange={setActiveTab}>
+        <Tabs defaultValue="automation" className="w-full" onValueChange={setActiveTab}>
           <div className="flex justify-center mb-8">
             <TabsList className="grid grid-cols-3 w-full max-w-xl">
               <TabsTrigger value="analytics">Analytics</TabsTrigger>
@@ -62,10 +62,15 @@ const FeaturesSection = () => {
                   <div className="md:w-1/2 space-y-4">
                     <h3 className="text-2xl font-bold">Workflow Automation</h3>
                     <p className="text-muted-foreground">
-                      Automate repetitive tasks and streamline your workflow with our powerful automation tools.
+                      Automate repetitive tasks and streamline your workflow with our powerful automation tools. Set up custom criteria and onboarding processes with ease.
                     </p>
                     <ul className="space-y-2">
-                      {["Task automation", "Scheduled reports", "Email notifications", "Integration with 100+ tools"].map((feature, index) => (
+                      {[
+                        "User criteria management", 
+                        "Automated onboarding flows", 
+                        "Custom workflow creation", 
+                        "Integration with 100+ tools"
+                      ].map((feature, index) => (
                         <li key={index} className="flex items-center gap-2">
                           <CheckCircle className="h-5 w-5 text-primary" />
                           <span>{feature}</span>
@@ -75,10 +80,10 @@ const FeaturesSection = () => {
                     <Button className="button-hover-effect">Learn More</Button>
                   </div>
                   <div className="md:w-1/2">
-                    <div className="rounded-lg overflow-hidden border shadow-lg">
+                    <div className="rounded-lg overflow-hidden border shadow-lg bg-gray-50 p-4">
                       <img 
-                        src="https://placehold.co/600x400/2a2a2a/FFFFFF?text=Automation+Tools" 
-                        alt="Automation Tools" 
+                        src="/workflow_automation.png" 
+                        alt="Workflow Automation Process" 
                         className="w-full h-auto"
                       />
                     </div>
