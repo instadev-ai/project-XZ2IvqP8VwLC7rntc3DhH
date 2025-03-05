@@ -38,38 +38,68 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Announcement Bar */}
-      <div className="announcement-bar py-2 px-4 text-center text-white">
+      <div className="announcement-bar py-2 px-4 text-center text-white bg-primary">
         <p className="text-sm">
           Quantum named a Leader in the 2024 Gartner® Magic Quadrant™ for SaaS Management Platforms. 
           <a href="#" className="ml-1 underline">Get your complimentary copy</a>
         </p>
       </div>
 
-      {/* Navbar */}
-      <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-white" />
-            <span className="text-xl font-bold text-white">Quantum</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <div className="relative group">
-              <a href="#" className="text-sm font-medium text-white/90 hover:text-white flex items-center gap-1 nav-link">
-                Solutions <ChevronDown className="h-4 w-4" />
-              </a>
+      {/* Navbar - Exactly like Torii's */}
+      <header className="sticky top-0 z-40 w-full bg-primary">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="h-6 w-6 text-white" />
+                  <span className="text-xl font-bold text-white">Quantum</span>
+                </div>
+              </div>
+              <div className="hidden md:block ml-10">
+                <div className="flex items-center space-x-8">
+                  <div className="relative">
+                    <button className="text-white/90 hover:text-white px-1 py-2 text-sm font-medium flex items-center gap-1">
+                      Solutions <ChevronDown className="h-4 w-4 ml-1" />
+                    </button>
+                  </div>
+                  <div className="relative">
+                    <button className="text-white/90 hover:text-white px-1 py-2 text-sm font-medium flex items-center gap-1">
+                      Resources <ChevronDown className="h-4 w-4 ml-1" />
+                    </button>
+                  </div>
+                  <button className="text-white/90 hover:text-white px-1 py-2 text-sm font-medium">
+                    Product
+                  </button>
+                  <a href="#pricing" className="text-white/90 hover:text-white px-1 py-2 text-sm font-medium">
+                    Pricing
+                  </a>
+                  <a href="#about" className="text-white/90 hover:text-white px-1 py-2 text-sm font-medium">
+                    About Us
+                  </a>
+                  <a href="#testimonials" className="text-white/90 hover:text-white px-1 py-2 text-sm font-medium">
+                    Customers
+                  </a>
+                </div>
+              </div>
             </div>
-            <div className="relative group">
-              <a href="#" className="text-sm font-medium text-white/90 hover:text-white flex items-center gap-1 nav-link">
-                Resources <ChevronDown className="h-4 w-4" />
-              </a>
+            <div className="hidden md:block">
+              <div className="flex items-center">
+                <a href="#" className="text-white hover:text-white/90 px-3 py-2 text-sm font-medium">
+                  Log in
+                </a>
+                <Button size="sm" className="ml-4 bg-white text-primary hover:bg-white/90">
+                  Get Started
+                </Button>
+              </div>
             </div>
-            <a href="#features" className="text-sm font-medium text-white/90 hover:text-white nav-link">Features</a>
-            <a href="#pricing" className="text-sm font-medium text-white/90 hover:text-white nav-link">Pricing</a>
-            <a href="#testimonials" className="text-sm font-medium text-white/90 hover:text-white nav-link">Customers</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" className="text-white hover:text-white hover:bg-white/10">Log in</Button>
-            <Button size="sm" className="bg-white text-primary hover:bg-white/90">Get Started</Button>
+            <div className="md:hidden">
+              <button className="text-white hover:text-white/90">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </header>
