@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -8,6 +8,32 @@ import { ArrowRight, CheckCircle, Star, Zap, BarChart3, Shield, Sparkles } from 
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("analytics");
+  const [isVisible, setIsVisible] = useState({});
+
+  // Animation for elements as they scroll into view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible((prev) => ({ ...prev, [entry.target.id]: true }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -15,7 +41,7 @@ const Index = () => {
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-primary" />
+            <Sparkles className="h-6 w-6 text-primary pulse-animation" />
             <span className="text-xl font-bold">Quantum</span>
           </div>
           <nav className="hidden md:flex items-center gap-6">
@@ -26,7 +52,7 @@ const Index = () => {
           </nav>
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="sm">Log in</Button>
-            <Button size="sm">Get Started</Button>
+            <Button size="sm" className="button-hover-effect">Get Started</Button>
           </div>
         </div>
       </header>
@@ -35,26 +61,26 @@ const Index = () => {
       <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-b from-background to-muted">
         <div className="absolute inset-0 bg-grid-black/[0.02] bg-[size:20px_20px]" />
         <div className="container relative flex flex-col items-center text-center">
-          <Badge className="mb-4" variant="outline">
+          <Badge className="mb-4 pulse-animation" variant="outline">
             <span className="text-xs font-medium">✨ Just Launched</span>
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 animate-gradient">
             Transform Your Business with AI-Powered Analytics
           </h1>
           <p className="max-w-[42rem] text-muted-foreground text-xl mb-12">
             Unlock insights, drive growth, and make data-driven decisions with our powerful analytics platform. Join thousands of businesses already thriving with Quantum.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto">
-            <Button size="lg" className="w-full">
+            <Button size="lg" className="w-full button-hover-effect">
               Start Free Trial
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" className="w-full">
+            <Button size="lg" variant="outline" className="w-full button-hover-effect">
               Watch Demo
             </Button>
           </div>
-          <div className="mt-16 relative w-full max-w-5xl mx-auto">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-500 rounded-lg blur-lg opacity-75"></div>
+          <div className="mt-16 relative w-full max-w-5xl mx-auto float-animation">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-500 rounded-lg blur-lg opacity-75 animate-pulse"></div>
             <div className="relative bg-background rounded-lg border shadow-xl overflow-hidden">
               <img 
                 src="https://placehold.co/1200x600/2a2a2a/FFFFFF?text=Dashboard+Preview" 
@@ -99,10 +125,10 @@ const Index = () => {
               </TabsList>
             </div>
 
-            <div className="relative mt-8 overflow-hidden rounded-xl border bg-muted p-1">
-              <div className="flex justify-center">
-                <TabsContent value="analytics" className="w-full">
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="relative mt-8 overflow-hidden rounded-xl border bg-background">
+              <div className="tabs-content-wrapper">
+                <TabsContent value="analytics" className="w-full tab-content-animation">
+                  <div className="flex flex-col md:flex-row gap-8 items-center p-6">
                     <div className="md:w-1/2 space-y-4">
                       <h3 className="text-2xl font-bold">Real-time Analytics Dashboard</h3>
                       <p className="text-muted-foreground">
@@ -116,7 +142,7 @@ const Index = () => {
                           </li>
                         ))}
                       </ul>
-                      <Button>Learn More</Button>
+                      <Button className="button-hover-effect">Learn More</Button>
                     </div>
                     <div className="md:w-1/2">
                       <div className="rounded-lg overflow-hidden border shadow-lg">
@@ -130,8 +156,8 @@ const Index = () => {
                   </div>
                 </TabsContent>
 
-                <TabsContent value="automation" className="w-full">
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
+                <TabsContent value="automation" className="w-full tab-content-animation">
+                  <div className="flex flex-col md:flex-row gap-8 items-center p-6">
                     <div className="md:w-1/2 space-y-4">
                       <h3 className="text-2xl font-bold">Workflow Automation</h3>
                       <p className="text-muted-foreground">
@@ -145,7 +171,7 @@ const Index = () => {
                           </li>
                         ))}
                       </ul>
-                      <Button>Learn More</Button>
+                      <Button className="button-hover-effect">Learn More</Button>
                     </div>
                     <div className="md:w-1/2">
                       <div className="rounded-lg overflow-hidden border shadow-lg">
@@ -159,8 +185,8 @@ const Index = () => {
                   </div>
                 </TabsContent>
 
-                <TabsContent value="security" className="w-full">
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
+                <TabsContent value="security" className="w-full tab-content-animation">
+                  <div className="flex flex-col md:flex-row gap-8 items-center p-6">
                     <div className="md:w-1/2 space-y-4">
                       <h3 className="text-2xl font-bold">Enterprise-Grade Security</h3>
                       <p className="text-muted-foreground">
@@ -174,7 +200,7 @@ const Index = () => {
                           </li>
                         ))}
                       </ul>
-                      <Button>Learn More</Button>
+                      <Button className="button-hover-effect">Learn More</Button>
                     </div>
                     <div className="md:w-1/2">
                       <div className="rounded-lg overflow-hidden border shadow-lg">
@@ -194,7 +220,7 @@ const Index = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 md:py-32 bg-muted">
+      <section id="benefits" className="py-20 md:py-32 bg-muted">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Quantum</h2>
@@ -221,9 +247,9 @@ const Index = () => {
                 description: "Rest easy knowing your data is protected with the highest security standards."
               }
             ].map((benefit, index) => (
-              <Card key={index} className="bg-background border-2 hover:border-primary transition-all duration-300">
-                <CardContent className="pt-6">
-                  <div className="mb-4">{benefit.icon}</div>
+              <Card key={index} className="bg-background border-2 hover:border-primary transition-all duration-300 card-hover-effect">
+                <CardContent className="pt-6 p-6">
+                  <div className="mb-4 float-animation">{benefit.icon}</div>
                   <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
                   <p className="text-muted-foreground">{benefit.description}</p>
                 </CardContent>
@@ -288,15 +314,15 @@ const Index = () => {
                 popular: false
               }
             ].map((plan, index) => (
-              <Card key={index} className={`relative overflow-hidden ${plan.popular ? 'border-primary shadow-lg' : ''}`}>
+              <Card key={index} className={`relative overflow-hidden card-hover-effect ${plan.popular ? 'border-primary shadow-lg' : ''}`}>
                 {plan.popular && (
                   <div className="absolute top-0 right-0">
-                    <div className="bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-bl-lg">
+                    <div className="bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-bl-lg pulse-animation">
                       Most Popular
                     </div>
                   </div>
                 )}
-                <CardContent className="pt-6">
+                <CardContent className="pt-6 p-6">
                   <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
                   <div className="mb-4">
                     <span className="text-3xl font-bold">{plan.price}</span>
@@ -311,7 +337,7 @@ const Index = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full" variant={plan.popular ? "default" : "outline"}>
+                  <Button className={`w-full button-hover-effect ${plan.popular ? '' : 'hover:bg-primary/10'}`} variant={plan.popular ? "default" : "outline"}>
                     {plan.buttonText}
                   </Button>
                 </CardContent>
@@ -352,8 +378,8 @@ const Index = () => {
                 rating: 5
               }
             ].map((testimonial, index) => (
-              <Card key={index} className="bg-background">
-                <CardContent className="pt-6">
+              <Card key={index} className="bg-background card-hover-effect">
+                <CardContent className="pt-6 p-6">
                   <div className="flex mb-4">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-primary text-primary" />
@@ -379,10 +405,10 @@ const Index = () => {
             Join thousands of businesses already using Quantum to drive growth and make data-driven decisions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
+            <Button size="lg" variant="secondary" className="button-hover-effect">
               Start Free Trial
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <Button size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary button-hover-effect">
               Schedule Demo
             </Button>
           </div>
