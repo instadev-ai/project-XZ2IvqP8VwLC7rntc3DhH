@@ -10,6 +10,7 @@ import DashboardSection from "@/components/sections/DashboardSection";
 import PricingSection from "@/components/sections/PricingSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CTASection from "@/components/sections/CTASection";
+import AdvancedFeaturesSection from "@/components/sections/AdvancedFeaturesSection";
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -45,6 +46,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <FeaturesSection />
+      <AdvancedFeaturesSection />
       <BenefitsSection />
       <DashboardSection />
       <PricingSection />
