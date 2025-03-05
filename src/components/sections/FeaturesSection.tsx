@@ -82,7 +82,7 @@ const FeaturesSection = () => {
                   <div className="md:w-1/2">
                     <div className="rounded-lg overflow-hidden border shadow-lg bg-gray-50 p-4">
                       <img 
-                        src="https://files.oaiusercontent.com/file-Yx9Yd9Yd9Yd9Yd9Yd9Yd9Yd/workflow_automation.png" 
+                        src="https://ellprnxjjzatijdxcogk.supabase.co/storage/v1/object/public/superdev-project-images/66765c88-9ffe-433e-b88a-37d269532bc8/XZ2IvqP8VwLC7rntc3DhH/1741191102379-pasted-image-1741191098673.png" 
                         alt="Workflow Automation Process" 
                         className="w-full h-auto"
                       />
