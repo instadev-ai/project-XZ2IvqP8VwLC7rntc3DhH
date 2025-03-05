@@ -1,7 +1,30 @@
 
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
+  // Array of departments with their corresponding gradient classes
+  const departments = [
+    { name: "IT", gradientClass: "gradient-blue-purple" },
+    { name: "Marketing", gradientClass: "gradient-purple-pink" },
+    { name: "Sales", gradientClass: "gradient-pink-orange" },
+    { name: "Finance", gradientClass: "gradient-orange-yellow" },
+    { name: "HR", gradientClass: "gradient-yellow-green" },
+    { name: "Operations", gradientClass: "gradient-green-teal" }
+  ];
+
+  // State to track the current department index
+  const [currentDept, setCurrentDept] = useState(0);
+
+  // Auto-rotate departments every 1.5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDept((prev) => (prev + 1) % departments.length);
+    }, 1500); // Faster rotation
+    
+    return () => clearInterval(interval);
+  }, [departments.length]);
+
   return (
     <section className="relative overflow-hidden py-20 md:py-32 bg-grid-blue text-white">
       {/* Floating elements */}
