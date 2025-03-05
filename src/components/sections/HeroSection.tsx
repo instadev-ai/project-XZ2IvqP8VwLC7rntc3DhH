@@ -35,7 +35,20 @@ const HeroSection = () => {
       <div className="container relative flex flex-col items-center text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-6">
-            SaaS Management<br />Built For IT
+            SaaS Management<br />
+            Built For{" "}
+            <span className="inline-block relative" style={{ minHeight: '1.2em', minWidth: '3em' }}>
+              {departments.map((dept, index) => (
+                <span 
+                  key={index} 
+                  className={`gradient-text ${dept.gradientClass} absolute inset-0 transition-all duration-300 ease-in-out ${
+                    index === currentDept ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                >
+                  {dept.name}
+                </span>
+              ))}
+            </span>
           </h1>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-12">
             Where shadow IT meets its match, SaaS spend finally makes sense, and workflows power your daily tasks. Experience the open platform designed for you.
