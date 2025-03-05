@@ -16,7 +16,7 @@ const BenefitsSection = () => {
           </div>
           
           {/* CTA Content with Grid Background */}
-          <div className="w-full bg-[url('https://ellprnxjjzatijdxcogk.supabase.co/storage/v1/object/public/superdev-project-images/66765c88-9ffe-433e-b88a-37d269532bc8/XZ2IvqP8VwLC7rntc3DhH/1741192112100-pasted-image-1741192093025.png')] bg-contain py-16 md:py-24">
+          <div className="w-full bg-[#f8fafc] bg-[linear-gradient(#e5e7eb_1px,transparent_1px),linear-gradient(to_right,#e5e7eb_1px,transparent_1px)] bg-[size:24px_24px] py-16 md:py-24">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
                 Get a 14 Day Head Start on SaaS Management
