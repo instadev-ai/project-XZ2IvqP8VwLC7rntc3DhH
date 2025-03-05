@@ -46,7 +46,7 @@ const AdvancedFeaturesSection = () => {
           </div>
           <div className="rounded-xl overflow-hidden shadow-lg bg-white p-6">
             <img 
-              src="https://ellprnxjjzatijdxcogk.supabase.co/storage/v1/object/public/superdev-project-images/66765c88-9ffe-433e-b88a-37d269532bc8/XZ2IvqP8VwLC7rntc3DhH/1741191318418-pasted-image-1741191267056.png" 
+              src="https://placehold.co/600x400/f8fafc/2563eb?text=App+Discovery+Interface" 
               alt="App Discovery Interface" 
               className="w-full h-auto rounded-lg"
             />
@@ -86,7 +86,7 @@ const AdvancedFeaturesSection = () => {
           </div>
           <div className="md:order-1 rounded-xl overflow-hidden shadow-lg bg-white p-6">
             <img 
-              src="https://ellprnxjjzatijdxcogk.supabase.co/storage/v1/object/public/superdev-project-images/66765c88-9ffe-433e-b88a-37d269532bc8/XZ2IvqP8VwLC7rntc3DhH/1741191318419-pasted-image-1741191308072.png" 
+              src="https://placehold.co/600x400/f8fafc/2563eb?text=SaaS+Cost+Management" 
               alt="SaaS Cost Management Dashboard" 
               className="w-full h-auto rounded-lg"
             />
@@ -126,7 +126,7 @@ const AdvancedFeaturesSection = () => {
           </div>
           <div className="rounded-xl overflow-hidden shadow-lg bg-white p-6">
             <img 
-              src="https://ellprnxjjzatijdxcogk.supabase.co/storage/v1/object/public/superdev-project-images/66765c88-9ffe-433e-b88a-37d269532bc8/XZ2IvqP8VwLC7rntc3DhH/1741191318419-pasted-image-1741191313169.png" 
+              src="https://placehold.co/600x400/f8fafc/2563eb?text=Workflow+Automation" 
               alt="IT Task Automation Workflow" 
               className="w-full h-auto rounded-lg"
             />
@@ -158,7 +158,7 @@ const AdvancedFeaturesSection = () => {
           </div>
           <div className="md:order-1 rounded-xl overflow-hidden shadow-lg bg-white p-6">
             <img 
-              src="https://ellprnxjjzatijdxcogk.supabase.co/storage/v1/object/public/superdev-project-images/66765c88-9ffe-433e-b88a-37d269532bc8/XZ2IvqP8VwLC7rntc3DhH/1741191318419-pasted-image-1741191317127.png" 
+              src="https://placehold.co/600x400/f8fafc/2563eb?text=API+and+Extensions" 
               alt="API and Extensions Interface" 
               className="w-full h-auto rounded-lg"
             />
