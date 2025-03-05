@@ -16,7 +16,7 @@ const HeroSection = () => {
   // State to track the current department index
   const [currentDept, setCurrentDept] = useState(0);
 
-  // Auto-rotate departments every 1.5 seconds
+  // Auto-rotate departments every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentDept((prev) => (prev + 1) % departments.length);
@@ -37,13 +37,11 @@ const HeroSection = () => {
           <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-6">
             SaaS Management<br />
             Built For{" "}
-            <span className="inline-block relative" style={{ minHeight: '1.2em', minWidth: '3em' }}>
+            <span className="text-rotate-wrapper">
               {departments.map((dept, index) => (
                 <span 
                   key={index} 
-                  className={`gradient-text ${dept.gradientClass} absolute inset-0 transition-all duration-300 ease-in-out ${
-                    index === currentDept ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  }`}
+                  className={`text-rotate-item gradient-text ${dept.gradientClass} ${index === currentDept ? 'active' : ''}`}
                 >
                   {dept.name}
                 </span>
