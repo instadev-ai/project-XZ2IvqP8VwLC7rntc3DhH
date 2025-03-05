@@ -1,30 +1,7 @@
 
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
-  // Array of departments with their corresponding gradient classes
-  const departments = [
-    { name: "IT", gradientClass: "gradient-blue-purple" },
-    { name: "Marketing", gradientClass: "gradient-purple-pink" },
-    { name: "Sales", gradientClass: "gradient-pink-orange" },
-    { name: "Finance", gradientClass: "gradient-orange-yellow" },
-    { name: "HR", gradientClass: "gradient-yellow-green" },
-    { name: "Operations", gradientClass: "gradient-green-teal" }
-  ];
-
-  // State to track the current department index
-  const [currentDept, setCurrentDept] = useState(0);
-
-  // Auto-rotate departments every 2 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentDept((prev) => (prev + 1) % departments.length);
-    }, 2000);
-    
-    return () => clearInterval(interval);
-  }, [departments.length]);
-
   return (
     <section className="relative overflow-hidden py-20 md:py-32 bg-grid-blue text-white">
       {/* Floating elements */}
@@ -36,19 +13,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-6">
             SaaS Management<br />
-            Built For{" "}
-            <span className="text-rotate-wrapper">
-              <span className="text-rotate">
-                {departments.map((dept, index) => (
-                  <span 
-                    key={index} 
-                    className={`gradient-text ${dept.gradientClass} block`}
-                  >
-                    {dept.name}
-                  </span>
-                ))}
-              </span>
-            </span>
+            Built For <span className="gradient-text gradient-blue-purple">IT</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-12">
             Where shadow IT meets its match, SaaS spend finally makes sense, and workflows power your daily tasks. Experience the open platform designed for you.
