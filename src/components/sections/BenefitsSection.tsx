@@ -1,46 +1,37 @@
 
-import { Card, CardContent } from "@/components/ui/card";
-import { BarChart3, Zap, Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const BenefitsSection = () => {
-  const benefits = [
-    {
-      icon: <BarChart3 className="h-10 w-10 text-primary" />,
-      title: "Data-Driven Insights",
-      description: "Transform raw data into actionable insights that drive business growth and innovation."
-    },
-    {
-      icon: <Zap className="h-10 w-10 text-primary" />,
-      title: "Lightning Fast Performance",
-      description: "Experience blazing fast performance with our optimized platform built for speed."
-    },
-    {
-      icon: <Shield className="h-10 w-10 text-primary" />,
-      title: "Enterprise-Grade Security",
-      description: "Rest easy knowing your data is protected with the highest security standards."
-    }
-  ];
-
   return (
-    <section id="benefits" className="py-20 md:py-32 bg-gray-50">
+    <section id="benefits" className="py-20 md:py-32">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Quantum</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We're more than just a tool - we're your partner in growth.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
-            <Card key={index} className="bg-white border shadow-md hover:shadow-xl transition-all duration-300 card-hover-effect">
-              <CardContent className="pt-6 p-6">
-                <div className="mb-4 float-animation">{benefit.icon}</div>
-                <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="flex flex-col items-center">
+          {/* Integration Hub Image */}
+          <div className="mb-16 max-w-3xl mx-auto">
+            <img 
+              src="https://ellprnxjjzatijdxcogk.supabase.co/storage/v1/object/public/superdev-project-images/66765c88-9ffe-433e-b88a-37d269532bc8/XZ2IvqP8VwLC7rntc3DhH/1741192112099-pasted-image-1741192058521.png" 
+              alt="Integration Hub" 
+              className="w-full h-auto"
+            />
+          </div>
+          
+          {/* CTA Content with Grid Background */}
+          <div className="w-full bg-[url('https://ellprnxjjzatijdxcogk.supabase.co/storage/v1/object/public/superdev-project-images/66765c88-9ffe-433e-b88a-37d269532bc8/XZ2IvqP8VwLC7rntc3DhH/1741192112100-pasted-image-1741192093025.png')] bg-contain py-16 md:py-24">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+                Get a 14 Day Head Start on SaaS Management
+              </h2>
+              <p className="text-xl mb-2 text-gray-700">
+                Test drive the leading SMP for IT.
+              </p>
+              <p className="text-xl mb-8 text-gray-700">
+                No Credit Card. No Phone Calls. No Hassle
+              </p>
+              <Button size="lg" className="!bg-primary !text-white px-8 py-6 text-lg h-auto">
+                Get Started
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
