@@ -46,7 +46,7 @@ const AdvancedFeaturesSection = () => {
           </div>
           <div className="rounded-xl overflow-hidden shadow-lg bg-white p-6">
             <img 
-              src="https://ellprnxjjzatijdxcogk.supabase.co/storage/v1/object/public/superdev-project-images/66765c88-9ffe-433e-b88a-37d269532bc8/XZ2IvqP8VwLC7rntc3DhH/1741191318418-pasted-image-1741191267056.png" 
+              src="https://ellprnxjjzatijdxcogk.supabase.co/storage/v1/object/public/superdev-project-images/66765c88-9ffe-433e-b88a-37d269532bc8/XZ2IvqP8VwLC7rntc3DhH/1741191878272-pasted-image-1741191877594.png" 
               alt="App Discovery Interface" 
               className="w-full h-auto rounded-lg"
             />
