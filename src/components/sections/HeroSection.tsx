@@ -1,7 +1,30 @@
 
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
+  // Array of departments with their corresponding gradient classes
+  const departments = [
+    { name: "IT", gradientClass: "gradient-blue-purple" },
+    { name: "Marketing", gradientClass: "gradient-purple-pink" },
+    { name: "Sales", gradientClass: "gradient-pink-orange" },
+    { name: "Finance", gradientClass: "gradient-orange-yellow" },
+    { name: "HR", gradientClass: "gradient-yellow-green" },
+    { name: "Operations", gradientClass: "gradient-green-teal" }
+  ];
+
+  // State to track the current department index
+  const [currentDept, setCurrentDept] = useState(0);
+
+  // Auto-rotate departments every 1.5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDept((prev) => (prev + 1) % departments.length);
+    }, 1500); // Faster rotation
+    
+    return () => clearInterval(interval);
+  }, [departments.length]);
+
   return (
     <section className="relative overflow-hidden py-20 md:py-32 bg-grid-blue text-white">
       {/* Floating elements */}
@@ -12,7 +35,22 @@ const HeroSection = () => {
       <div className="container relative flex flex-col items-center text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-6">
-            SaaS Management<br />Built For IT
+            SaaS Management<br />
+            <div className="flex justify-center items-center">
+              <span>Built For </span>
+              <span className="inline-block relative ml-4" style={{ minHeight: '1.2em', minWidth: '8rem' }}>
+                {departments.map((dept, index) => (
+                  <span 
+                    key={index} 
+                    className={`gradient-text ${dept.gradientClass} absolute left-0 w-full text-center transition-all duration-300 ease-in-out ${
+                      index === currentDept ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    }`}
+                  >
+                    {dept.name}
+                  </span>
+                ))}
+              </span>
+            </div>
           </h1>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-12">
             Where shadow IT meets its match, SaaS spend finally makes sense, and workflows power your daily tasks. Experience the open platform designed for you.
