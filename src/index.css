@@ -282,39 +282,28 @@ html {
   filter: blur(20px);
 }
 
-/* Text rotation animation */
+/* Improved text rotation animation */
 .text-rotate-wrapper {
+  display: inline-block;
   height: 1.2em;
   overflow: hidden;
-  display: inline-flex;
   vertical-align: top;
-}
-
-.text-rotate {
   position: relative;
-  display: inline-block;
-  animation: text-rotate 12s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
 }
 
-@keyframes text-rotate {
-  0%, 16.66% {
-    transform: translateY(0%);
-  }
-  16.67%, 33.33% {
-    transform: translateY(-16.66%);
-  }
-  33.34%, 50% {
-    transform: translateY(-33.33%);
-  }
-  50.01%, 66.66% {
-    transform: translateY(-50%);
-  }
-  66.67%, 83.33% {
-    transform: translateY(-66.66%);
-  }
-  83.34%, 100% {
-    transform: translateY(-83.33%);
-  }
+.text-rotate-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.text-rotate-item.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Gradient text styles */
